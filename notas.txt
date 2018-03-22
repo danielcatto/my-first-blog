@@ -1,0 +1,34 @@
+Após a instalação do Python do Django e a configuração da VENV
+Criar primeiro projeto:
+    django-admin startproject
+Django-admin é um script que irá criar os diretórios e arquivos para você
+Altere as configurações de <mysite/settings.py>
+    TIME_ZONE = 'America/Sao_Paulo'
+
+Nós também precisaremos adicionar um caminho para arquivos estáticos
+(nós vamos descobrir tudo sobre arquivos estáticos e CSS mais tarde no tutorial).
+Desça até o final do arquivo e logo abaixo da entrada STATIC_URL, adicione um novo um chamado STATIC_ROOT:
+
+<
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+>
+
+Quando a variável DEBUG está como True e ALLOWED_HOSTS é vazio, o host considera ['localhost', '127.0.0.1', '[::1]'].
+Isso não corresponde ao seu nome de usuário no PythonAnywhere.
+Uma vez que você fez a implantação da sua aplicação, nós devemos mudar as seguintes propriedades no arquivo
+mysite/settings.py:
+
+Há vários softwares de banco de dados diferentes que podem armazenar dados para o seu site.
+Nós vamos usar o padrão, sqlite3.
+Isto já está configurado nesta parte do seu arquivo mysite/settings.py:
+
+<
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+>
+
